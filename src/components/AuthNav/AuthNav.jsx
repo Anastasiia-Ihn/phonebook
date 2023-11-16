@@ -3,7 +3,7 @@ import { NavLinkAuthStyled } from "./AuthNav.styled";
 export const AuthNav = () => {
   return (
     <div>
-      <NavLinkAuthStyled  to="/registration">
+      <NavLinkAuthStyled  to="/register">
       Registration
       </NavLinkAuthStyled>
       <NavLinkAuthStyled  to="/login">
