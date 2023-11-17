@@ -11,10 +11,12 @@ const contactsInitialState = {
 //   state.isLoading = true;
 // };
 
-// const handleRejected = (state, { payload }) => {
-//   state.isLoading = false;
-//   state.error = payload;
-// };
+const handleRejected = (state, { payload }) => {
+  console.log(payload);
+
+  state.isLoading = false;
+  state.error = payload;
+};
 
 // const handleFulfilled = state => {
 //   state.isLoading = false;
@@ -26,6 +28,8 @@ const fetchFulfilled = (state, { payload }) => {
 };
 
 const addFulfilled = (state, { payload }) => {
+  console.log(payload);
+  
   state.contacts.push(payload);
 };
 
@@ -43,7 +47,7 @@ export const contactsSlice = createSlice({
       .addCase(addContact.fulfilled, addFulfilled)
       .addCase(deleteContact.fulfilled, deleteFulfilled)
       // .addMatcher(({ type }) => type.endsWith('/pending'), handlePending)
-      // .addMatcher(({ type }) => type.endsWith('/rejected'), handleRejected)
+      .addMatcher(({ type }) => type.endsWith('/rejected'), handleRejected)
       // .addMatcher(({ type }) => type.endsWith('/fulfilled'), handleFulfilled);
   },
 });

@@ -21,7 +21,7 @@ const builderSchema = Yup.object().shape({
 
 const initialValues = {
   name: '',
-  phone: '',
+  number: '',
 };
 
 export const ContactForm = () => {
@@ -29,7 +29,7 @@ export const ContactForm = () => {
   const listContacts = useSelector(selectContacts);
 
   const onSubmit = (value, form) => {
-    const { name, phone } = value;
+    const { name, number } = value;
 
     const isElem = listContacts.find(contact => contact.name === name);
 
@@ -37,11 +37,20 @@ export const ContactForm = () => {
       alert(`${name} is already in contacts`);
       return;
     }
+console.log( name,
+  number,);
+console.log(dispatch(
+  addContact({
+    name,
+    number,
+  })
+));
 
+    
     dispatch(
       addContact({
         name,
-        phone,
+        number,
       })
     );
 
@@ -63,8 +72,8 @@ export const ContactForm = () => {
 
         <label>
           Number
-          <FieldForm type="tel" name="phone" />
-          <ErrorMsg component="p" name="phone" />
+          <FieldForm type="tel" name="number" />
+          <ErrorMsg component="p" name="number" />
         </label>
 
         <BtnAddContact type="submit">Add contact</BtnAddContact>
