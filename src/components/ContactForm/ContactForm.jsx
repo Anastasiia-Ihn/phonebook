@@ -29,30 +29,22 @@ export const ContactForm = () => {
   const listContacts = useSelector(selectContacts);
 
   const onSubmit = (value, form) => {
-    const { name, number } = value;
+    // const { name, number } = value;
+    console.log(value);
 
-    const isElem = listContacts.find(contact => contact.name === name);
+    const isElem = listContacts.find(contact => contact.name === value.name);
 
     if (isElem) {
-      alert(`${name} is already in contacts`);
+      alert(`${value.name} is already in contacts`);
       return;
     }
-console.log( name,
-  number,);
-console.log(dispatch(
-  addContact({
-    name,
-    number,
-  })
-));
+   
+    // dispatch(addContact({
+    //       name,
+    //       number,
+    //     }));
 
-    
-    dispatch(
-      addContact({
-        name,
-        number,
-      })
-    );
+    dispatch(addContact(value));
 
     form.resetForm();
   };
