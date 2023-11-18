@@ -7,9 +7,9 @@ const contactsInitialState = {
   error: null,
 };
 
-// const handlePending = state => {
-//   state.isLoading = true;
-// };
+const handlePending = state => {
+  state.isLoading = true;
+};
 
 const handleRejected = (state, { payload }) => {
   console.log(payload);
@@ -28,6 +28,7 @@ const fetchFulfilled = (state, { payload }) => {
 };
 
 const addFulfilled = (state, { payload }) => {
+
   console.log(payload);
   
   state.contacts.push(payload);
@@ -46,7 +47,7 @@ export const contactsSlice = createSlice({
       .addCase(fetchContacts.fulfilled, fetchFulfilled)
       .addCase(addContact.fulfilled, addFulfilled)
       .addCase(deleteContact.fulfilled, deleteFulfilled)
-      // .addMatcher(({ type }) => type.endsWith('/pending'), handlePending)
+      .addMatcher(({ type }) => type.endsWith('/pending'), handlePending)
       .addMatcher(({ type }) => type.endsWith('/rejected'), handleRejected)
       // .addMatcher(({ type }) => type.endsWith('/fulfilled'), handleFulfilled);
   },

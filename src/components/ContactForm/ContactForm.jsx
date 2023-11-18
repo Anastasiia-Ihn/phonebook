@@ -38,7 +38,8 @@ export const ContactForm = () => {
       alert(`${value.name} is already in contacts`);
       return;
     }
-   
+    // email: form.elements.email.value,
+    //     password: form.elements.password.value,
     // dispatch(addContact({
     //       name,
     //       number,
