@@ -7,9 +7,9 @@ import {
   StyledForm,
 } from './ContactForm.styled';
 
-import { addContact } from '../../redux/operations';
+import { addContact } from '../../redux/contacts/operations';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/contacts/selectors';
 
 const builderSchema = Yup.object().shape({
   name: Yup.string()
@@ -29,7 +29,6 @@ export const ContactForm = () => {
   const listContacts = useSelector(selectContacts);
 
   const onSubmit = (value, form) => {
-    // const { name, number } = value;
 
     const isElem = listContacts.find(contact => contact.name === value.name);
 
@@ -37,12 +36,6 @@ export const ContactForm = () => {
       alert(`${value.name} is already in contacts`);
       return;
     }
-    // email: form.elements.email.value,
-    //     password: form.elements.password.value,
-    // dispatch(addContact({
-    //       name,
-    //       number,
-    //     }));
 
     dispatch(addContact(value));
 
@@ -52,7 +45,7 @@ export const ContactForm = () => {
   return (
     <Formik
       initialValues={initialValues}
-      alidationSchema={builderSchema}
+      validationSchema={builderSchema}
       onSubmit={onSubmit}
     >
       <StyledForm>
