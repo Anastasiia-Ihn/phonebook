@@ -30,7 +30,6 @@ export const ContactForm = () => {
 
   const onSubmit = (value, form) => {
     // const { name, number } = value;
-    console.log(value);
 
     const isElem = listContacts.find(contact => contact.name === value.name);
 
