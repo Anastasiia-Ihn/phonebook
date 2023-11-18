@@ -6,11 +6,12 @@ import { Layout } from './Layout/Layout';
 // import { ContactForm } from './ContactForm/ContactForm';
 // import { ContactList } from './ContactList/ContactList';
 // import { Filter } from './Filter/Filter';
-import { fetchContacts } from 'redux/operations';
+// import { fetchContacts } from 'redux/operations';
 import Login from 'pages/Login/Login';
 import Home from 'pages/Home/Home';
 import Registration from 'pages/Registration/Registration';
 import { ContactsPage } from './ContactsPage/ContactsPage';
+import { refreshUser } from 'redux/auth/operations';
 
 // const Home = lazy(() => import('../pages/Home/Home'));
 // const Movies = lazy(() => import('../pages/Movies/Movies'));
@@ -21,8 +22,12 @@ import { ContactsPage } from './ContactsPage/ContactsPage';
 export const App = () => {
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   dispatch(fetchContacts());
+  // }, [dispatch]);
+
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
 
   return (
