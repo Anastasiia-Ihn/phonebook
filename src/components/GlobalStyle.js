@@ -1,10 +1,9 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
 body {
-    color: #119875;
-    width: 800px;
+    color: #000000;
     padding: 0 15px;
   
   margin: 0 auto;
@@ -40,6 +39,7 @@ p {
 ul {
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
 
 a {
@@ -51,4 +51,17 @@ li{
    list-style: none;
    padding: 0;
 }
+`;
+
+export const Button = styled.button`
+  border-radius: 8px;
+  border-color: #ffffff;
+  font-weight: 600;
+  padding: 5px;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background-color: #23784cA1;
+  }
 `;
