@@ -8,13 +8,6 @@ export const SectionHeader = styled.div`
 `;
 
 export const HeaderStyled = styled.header`
-  /* z-index: 100;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width:800px; */
-  /* max-width: 100vw; */
-
   max-width: 1158px;
   padding: 15px;
   margin-left: auto;

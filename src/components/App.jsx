@@ -13,7 +13,6 @@ const Contacts = lazy(() => import('pages/Contacts/Contacts'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  // const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -23,8 +22,6 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        {/* <Route path="login" element={<Login />} /> */}
-        {/* <Route path="register" element={<Registration />} /> */}
 
         <Route
           path="/register"
